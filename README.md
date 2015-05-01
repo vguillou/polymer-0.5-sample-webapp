@@ -48,7 +48,7 @@ bower update
 ```sh
 gulp
 ```
-Compile source are located in ./dist
+Compiled sources are located in ./dist
 
 ### Run
 Launch your server of choice or simply
@@ -59,8 +59,8 @@ Visit ./app/index.html or ./dist/index.html for the optimized version.
 
 ## Demo
 
-Keep in mind this is not finished ! (transitions, issues with CORS,...)
-[.](https://vguillou.github.io/sample-app/dist/)
+Keep in mind this is only a draft ! (transitions, issues with CORS,...)
+[Here.](https://vguillou.github.io/sample-app/dist/)
 
 ## License
 
