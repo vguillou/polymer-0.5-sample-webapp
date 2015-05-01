@@ -1,4 +1,4 @@
-# A Polymer-based single page Web App
+# A Polymer-based, single-page sample Web App
 
 _(Work in progress !)_
 
