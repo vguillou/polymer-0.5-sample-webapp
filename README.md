@@ -40,7 +40,7 @@ npm install -g generator-polymer
 
 * Install dependencies : NodeJS' (building tools) and Bower's (Polymer framework, polyfills and web-components) :
 ```sh
-npm install -g yo
+npm install
 bower update
 ```
 
