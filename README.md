@@ -60,6 +60,7 @@ Visit ./app/index.html or ./dist/index.html for the optimized version.
 ## Demo
 
 Keep in mind this is only a draft ! (transitions, issues with CORS,...)
+
 [Here.](https://vguillou.github.io/sample-app/dist/)
 
 ## License
