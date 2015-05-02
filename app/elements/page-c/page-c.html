@@ -53,7 +53,7 @@
 				// Necessary for ActivableMixin
 				this.activableDetachedHandler();
 			},
-			activated: function() {
+			willActivate: function() {
 				// Load the users
 				if (!this.users) {
 					this.$.service.fetchUsers();

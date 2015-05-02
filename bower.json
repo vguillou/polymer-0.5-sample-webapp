@@ -27,12 +27,12 @@
     "core-toolbar": "Polymer/core-toolbar#^0.5",
     "paper-icon-button": "Polymer/paper-icon-button#^0.5",
     "more-routing": "Polymore/more-routing#^0.5",
-	"cache-polyfill": "coonsta/cache-polyfill",
-    "splash-element": "*",
+    "cache-polyfill": "coonsta/cache-polyfill",
+    "splash-element": "vguillou/splash-element#^0.5",
     "activable-mixin": "vguillou/activable-mixin#^0.5",
-	"core-ajax": "Polymer/core-ajax#^0.5",
-	"core-list": "Polymer/core-list#^0.5",
-	"core-image": "Polymer/core-image#^0.5"
+    "core-ajax": "Polymer/core-ajax#^0.5",
+    "core-list": "Polymer/core-list#^0.5",
+    "core-image": "Polymer/core-image#^0.5"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^2.2.3"
