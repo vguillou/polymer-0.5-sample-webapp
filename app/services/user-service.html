@@ -10,14 +10,14 @@
     </style>
 	
     <core-ajax id="ajaxUsers"
-	  url="http://api.randomuser.me/0.4/?results=100"
+	  url="../data/users.json"
       on-core-response="{{usersLoaded}}"
 	  on-core-error="{{usersError}}"
       handleAs="json">
     </core-ajax>
 	
 	<core-ajax id="ajaxDetails"
-	  url="http://api.randomuser.me/0.4/?seed={{seed}}"
+	  url="../data/users.json"
       on-core-response="{{detailsLoaded}}"
 	  on-core-error="{{detailsError}}"
       handleAs="json">
@@ -50,7 +50,6 @@
        */
       fetchUserDetails: function(seed) {
         this.seed = seed;
-		console.log("seed:", seed);
 		this.$.ajaxDetails.go();
       },
 	  
@@ -80,8 +79,14 @@
 	  
       detailsLoaded: function(e) {
 		if (this.$.ajaxDetails.response) {
-			details = this.$.ajaxDetails.response.results[0].user;
-			this.fire('details-loaded', {result: details}, this, false);
+			this.$.ajaxDetails.response.results.forEach(
+				function checkUser(u) {
+					if (u.seed === this.seed) {
+						this.fire('details-loaded', {result: u.user}, this, false);
+						return;
+					}
+				}.bind(this)
+			);
 		}
       },
 	  
