@@ -1,6 +1,6 @@
 {
-  "name": "sample-app",
-  "version": "0.5.0",
+  "name": "polymer-sample-webapp",
+  "version": "0.1.0",
   "authors": [
     "Vincent Guillou <vin.guillou@gmail.com>"
   ],
@@ -13,7 +13,7 @@
     "bower_components",
     "test/temp",
     "test/bower_components",
-	"TODO.txt"
+    "TODO.txt"
   ],
   "dependencies": {
     "webcomponentsjs": "^0.5",

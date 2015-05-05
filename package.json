@@ -1,6 +1,6 @@
 {
-  "name": "sample-app",
-  "version": "0.0.0",
+  "name": "polymer-sample-webapp",
+  "version": "0.1.0",
   "dependencies": {},
   "devDependencies": {
     "web-component-tester": "^2.2.3",
