@@ -1,14 +1,9 @@
-core-toolbar {
-	background-color: #7986cb;
-	color: #fff;
-}
-
 .row {
 	padding: 16px;
 	color: #555;
 }
 
-.row core-image {
+.row core-image.round {
   width: 55px;
   height: 55px;
   border-radius: 50%;

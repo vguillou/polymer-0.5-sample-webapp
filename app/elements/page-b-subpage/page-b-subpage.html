@@ -3,6 +3,7 @@
 <link rel="import" href="../../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../../bower_components/activable-mixin/activable-mixin.html">
+<link rel="import" href="../../../bower_components/core-animated-pages/transitions/cross-fade.html">
 <link rel="import" href="../sample-content/sample-content.html">
 
 <polymer-element name="page-b-subpage">
@@ -36,20 +37,20 @@
 				this.activableDetachedHandler();
 			},
 			willActivate: function() {
-				console.log('page-b-subpage.willActivate => Do your page init thingy here. Parameters : ', this.params);
+				//console.log('page-b-subpage.willActivate => Do your page init thingy here. Parameters : ', this.params);
 				this.$.headerpanel.scroller.scrollTop = 0;
 			},
 			activated: function() {
-				console.log('page-b-subpage.activated. Parameters : ', this.params);
+				//console.log('page-b-subpage.activated. Parameters : ', this.params);
 			},
 			willDeactivate: function() {
-				console.log('page-b-subpage.willDeactivate. Parameters of the new page to display : ', this.params);
+				//console.log('page-b-subpage.willDeactivate. Parameters of the new page to display : ', this.params);
 			},
 			deactivated: function() {
-				console.log('page-b-subpage.deactivated => Do your page destroy thingy here. Parameters of the new page to display : ', this.params);
+				//console.log('page-b-subpage.deactivated => Do your page destroy thingy here. Parameters of the new page to display : ', this.params);
 			},
-			onGoBack: function(e) {
-				this.fire('go-back', {srcEvent: e}, this, false);
+			onGoBack: function() {
+				this.fire('navigate', {route: 'page-b', params: null}, this, false);
 			}
 		}, Polymer.ActivableMixin));
 	</script>

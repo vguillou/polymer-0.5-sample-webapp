@@ -3,6 +3,7 @@
 <link rel="import" href="../../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../../bower_components/activable-mixin/activable-mixin.html">
+<link rel="import" href="../../../bower_components/core-animated-pages/transitions/cross-fade.html">
 <link rel="import" href="../sample-content/sample-content.html">
 
 <polymer-element name="page-b">
@@ -34,16 +35,16 @@
 				this.activableDetachedHandler();
 			},
 			willActivate: function() {
-				console.log('page-b.willActivate => Do your page init thingy here');
+				//console.log('page-b.willActivate => Do your page init thingy here');
 			},
 			activated: function() {
-				console.log('page-b.activated');
+				//console.log('page-b.activated');
 			},
 			willDeactivate: function() {
-				console.log('page-b.willDeactivate');
+				//console.log('page-b.willDeactivate');
 			},
 			deactivated: function() {
-				console.log('page-b.deactivated => Do your page exit thingy here');
+				//console.log('page-b.deactivated => Do your page exit thingy here');
 			},
 			togglePanel: function(e) {
 				this.fire('toggle-panel', {srcEvent: e}, this, false);

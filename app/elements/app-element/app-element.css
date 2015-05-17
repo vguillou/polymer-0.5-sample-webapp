@@ -1,29 +1,3 @@
-/**
- * Common styles that must pierce shadow dom
- */
-:host /deep/ [not-selectable] {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-:host /deep/ core-header-panel {
-	position: absolute;
-	-webkit-overflow-scrolling: touch; 
-}
-
-:host /deep/ core-toolbar {
-	display: block;
-	height: 60px;
-	font-size: 20px;
-	font-weight: 600;
-	line-height: 60px;
-}
-
-/**
- * Local styles
- */
 img.menuHeader {
 	width: 224px;
 	margin: 16px 38px 16px 38px;

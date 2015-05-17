@@ -1,6 +1,9 @@
 (function(window, document, undefined) {
   'use strict';
   
+  // Global variables
+  window.defaultColor = '#7986cb';
+
   // Setup the service worker
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./serviceworker.js', { scope: './' })
