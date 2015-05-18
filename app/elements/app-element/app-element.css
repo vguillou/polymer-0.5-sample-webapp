@@ -14,13 +14,6 @@ core-menu .separator {
 	border-top: 1px solid #e0e0e0;
 }
 
-core-menu, core-menu * {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
 core-item {
 	padding: 0.5em 1em 0.5em 1em;
 }
@@ -32,4 +25,33 @@ core-item.core-selected {
 
 core-item > a > paper-ripple {
 	color: #7986cb;
+}
+
+
+/** Default theme **/
+
+:host /deep/ [not-selectable] {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+:host /deep/ core-header-panel {
+	position: absolute;
+	-webkit-overflow-scrolling: touch; 
+}
+
+:host /deep/ core-toolbar {
+	display: block;
+	height: 60px;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 60px;
+}
+
+:host /deep/ core-toolbar,
+:host /deep/ core-image {
+	background-color: #7986cb;
+	color: #fff;
 }

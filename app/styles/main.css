@@ -21,30 +21,3 @@ html, body, #splash {
 	background-image: url(../images/logo.svg);
 	background-color: #eee;
 }
-
-/** Default theme **/
-
-html /deep/ [not-selectable] {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-html /deep/ core-header-panel {
-	position: absolute;
-	-webkit-overflow-scrolling: touch; 
-}
-
-html /deep/ core-toolbar {
-	display: block;
-	height: 60px;
-	font-size: 20px;
-	font-weight: 600;
-	line-height: 60px;
-}
-
-html /deep/ core-toolbar, html /deep/ core-image {
-	background-color: #7986cb;
-	color: #fff;
-}
