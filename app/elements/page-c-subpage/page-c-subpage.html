@@ -1,5 +1,5 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../../bower_components/core-header-panel/core-header-panel.html">
+<link rel="import" href="../../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
 <link rel="import" href="../../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../../bower_components/activable-mixin/activable-mixin.html">
@@ -15,55 +15,53 @@
 		<link rel="stylesheet" href="page-c-subpage.css">
 		
 		<user-service id="service" on-details-loaded="{{detailsLoaded}}" on-details-error="{{detailsError}}"></user-service>
+			<!-- Only for the hero transition; to be hidden when the transition ends -->
+			<div id="herodiv" class="tall-header" hero-id="userImg" hero?="{{(parentElement.selected===transitionTo || parentElement.lastSelected===transitionTo) && user}}" cross-fade-delayed?="{{(parentElement.selected!=transitionTo && parentElement.lastSelected!=transitionTo) || !user}}"></div>
 			
-			<core-header-panel id="headerpanel" mode="seamed" on-scroll="{{scroll}}" fit>
+			<!-- Page content -->
+			<core-scroll-header-panel id="headerpanel" condenses on-core-header-transform="{{transformHeader}}" fit cross-fade-delayed>
 
-				<core-toolbar id="toolbar" not-selectable cross-fade>
+				<core-toolbar id="toolbar" class="tall tall-header" style="background-color: transparent;" not-selectable>
 					<paper-icon-button icon="arrow-back" on-tap="{{onGoBack}}"></paper-icon-button>
-					<span id="title" class="toolbarTitle" flex>{{user.name.title | toUpperCase}} {{user.name.first | toUpperCase}} {{user.name.last | toUpperCase}}</span>
+					<div class="bottom indent title" flex>{{user.name.title | toUpperCase}} {{user.name.first | toUpperCase}} {{user.name.last | toUpperCase}}</div>
 				</core-toolbar>
 
-				<div class="content" fit>
+				<div class="content">
+					<!-- Phone -->
+			        <div class="group">
+			          <div class="item">
+			            <core-icon icon="perm-phone-msg"></core-icon>
+			            <div class="double-line-1">{{user.phone ? user.phone : '...'}}</div>
+			            <div class="double-line-2">Home</div>
+			          </div>
+			          <div class="item">
+			            <div class="double-line-1">{{user.cell ? user.cell : '...'}}</div>
+			            <div class="double-line-2">Cell</div>
+			          </div>
+			        </div>
 
-					<core-image id="headerimage" src="{{user.picture}}" preload fade sizing="cover" style="background-color: {{headerColor}};" hero-id="userImg" hero?="{{(parentElement.selected===transitionTo || parentElement.lastSelected===transitionTo) && user}}" cross-fade?="{{(parentElement.selected!=transitionTo && parentElement.lastSelected!=transitionTo) || !user}}"></core-image>
+			        <!-- Email -->
+			        <div class="group">
+			          <div class="item">
+			          	<core-icon icon="mail"></core-icon>
+			            <div class="double-line-1">{{user.email ? user.email : '...'}}</div>
+			            <div class="double-line-2">Personal</div>
+			          </div>
+			        </div>
 
-					<div class="page-content" cross-fade-delayed>
-						
-						<!-- Phone -->
-				        <div class="group">
-				          <div class="item">
-				            <core-icon icon="perm-phone-msg"></core-icon>
-				            <div class="double-line-1">{{user.phone ? user.phone : '...'}}</div>
-				            <div class="double-line-2">Home</div>
-				          </div>
-				          <div class="item">
-				            <div class="double-line-1">{{user.cell ? user.cell : '...'}}</div>
-				            <div class="double-line-2">Cell</div>
-				          </div>
-				        </div>
+			        <!-- Address -->
+			        <div class="group">
+			          <div class="item">
+			            <core-icon icon="room"></core-icon>
+			            <div class="double-line-1">{{user.location ? user.location.street : '...'}}</div>
+			            <div class="double-line-1">{{user.location ? user.location.city : '...'}} {{user.location.state}} {{user.location.zip}}</div>
+			            <div class="double-line-2">Home</div>
+			          </div>
+			        </div>
 
-				        <!-- Email -->
-				        <div class="group">
-				          <div class="item">
-				          	<core-icon icon="mail"></core-icon>
-				            <div class="double-line-1">{{user.email ? user.email : '...'}}</div>
-				            <div class="double-line-2">Personal</div>
-				          </div>
-				        </div>
-
-				        <!-- Address -->
-				        <div class="group">
-				          <div class="item">
-				            <core-icon icon="room"></core-icon>
-				            <div class="double-line-1">{{user.location ? user.location.street : '...'}}</div>
-				            <div class="double-line-1">{{user.location ? user.location.city : '...'}} {{user.location.state}} {{user.location.zip}}</div>
-				            <div class="double-line-2">Home</div>
-				          </div>
-				        </div>
-						<sample-content size="5" ></sample-content>
-					</div>
+					<sample-content size="5" ></sample-content>
 				</div>
-			</core-header-panel>
+			</core-scroll-header-panel>
 
 		</div>
 	</template>
@@ -87,16 +85,18 @@
 			transitionTo: -1,
 
 			/**
-			 * The current opacity of the page's header image.
+			 * Color of the page's header.
 			 */
-			alpha: 0,
-
 			get headerColor() {
 				return this.user && this.user.color ? this.user.color : window.defaultColor;
 			},
 			attributeChanged: function(attrName, oldVal, newVal) {
 				// Necessary for ActivableMixin
 				this.activableAttributeChangedHandler(attrName, oldVal, newVal);
+			},
+			userChanged: function(oldVal, newVal) {
+				this.changeHeaderImage(newVal ? newVal.picture : null);
+				this.changeCondensedHeaderColor(this.headerColor);
 			},
 			detached: function() {
 				// Necessary for ActivableMixin
@@ -105,11 +105,18 @@
 			willActivate: function() {
 				// Before even displying the page, make sure the scroller is set to top
 				this.$.headerpanel.scroller.scrollTop = 0;
-				this.scroll();
+
+				// Show the hero-transition's target
+				this.$.herodiv.style.visibility = 'visible';
 			},
 			activated: function() {
 				// Get the details from the object's ID
 				this.$.service.fetchUserDetails(this.params.id);
+
+				// Hide the now useless hero-transition's target
+				this.async(function() {
+					this.$.herodiv.style.visibility = 'hidden';
+				}, null, 300);
 			},
 			deactivated: function() {
 				// Reset the page once the page is not displayed anymore
@@ -140,19 +147,23 @@
 			onGoBack: function() {
 				this.fire('navigate', {route: 'page-c', params: null}, this, false);
 			},
-			scroll: function() {
-				var headerHeight = this.$.headerimage.offsetHeight;
-				var scrollTop = this.$.headerpanel.scroller.scrollTop;
-				var newAlpha = 1 - Math.max(0, (headerHeight - scrollTop) / headerHeight);
-				if (newAlpha !== this.alpha) {
-					this.alpha = newAlpha;
-					var matches = this.headerColor.match(/#([\da-f]{2})([\da-f]{2})([\da-f]{2})/i);
-					var rgba = 'rgba(' + matches.slice(1).map(function(m) {
-						return parseInt(m, 16);
-					}).concat(this.alpha) + ')';
-					this.$.toolbar.style.backgroundColor = rgba;
-					this.$.title.style.opacity = this.alpha;
-				}
+			changeHeaderImage: function(newValue) {
+		  		// Background for toolbar when it is at its full size
+		  		var headerStyle = this.shadowRoot.querySelector('core-scroll-header-panel::shadow #headerBg').style;
+		  		headerStyle.backgroundImage = this.$.herodiv.style.backgroundImage = (newValue ? 'url(' + newValue + ')' : 'none');
+		  	},
+		    changeCondensedHeaderColor: function(newValue) {
+		    	// Background for the toolbar when it is condensed
+		  		var headerStyle = this.shadowRoot.querySelector('core-scroll-header-panel::shadow #condensedHeaderBg').style;
+		  		headerStyle.backgroundColor = this.$.herodiv.style.backgroundColor = (newValue ? newValue : window.defaultColor);
+		  	},
+			transformHeader: function(e) {
+				var titleStyle = this.shadowRoot.querySelector('.title').style;
+				var d = e.detail;
+				var m = d.height - d.condensedHeight;
+				var scale = Math.max(0.75, (m - d.y) / (m / 0.25)  + 0.75);
+				titleStyle.transform = titleStyle.webkitTransform =
+					'scale(' + scale + ') translateZ(0)';
 			}
 		}, Polymer.ActivableMixin));
 	</script>
