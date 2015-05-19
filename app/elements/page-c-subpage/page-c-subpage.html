@@ -16,7 +16,7 @@
 		
 		<user-service id="service" on-details-loaded="{{detailsLoaded}}" on-details-error="{{detailsError}}"></user-service>
 			<!-- Only for the hero transition; to be hidden when the transition ends -->
-			<div id="herodiv" class="tall-header" hero-id="userImg" hero?="{{(parentElement.selected===transitionTo || parentElement.lastSelected===transitionTo) && user}}" cross-fade-delayed?="{{(parentElement.selected!=transitionTo && parentElement.lastSelected!=transitionTo) || !user}}"></div>
+			<div id="herodiv" class="tall-header" hero-id="userImg" hero?="{{(parentElement.selected===transitionTo || parentElement.lastSelected===transitionTo) && user!=null}}" cross-fade-delayed?="{{(parentElement.selected!=transitionTo && parentElement.lastSelected!=transitionTo) || !user}}"></div>
 			
 			<!-- Page content -->
 			<core-scroll-header-panel id="headerpanel" condenses on-core-header-transform="{{transformHeader}}" fit cross-fade-delayed>
@@ -27,6 +27,7 @@
 				</core-toolbar>
 
 				<div class="content">
+
 					<!-- Phone -->
 			        <div class="group">
 			          <div class="item">
@@ -124,6 +125,8 @@
 				}, null, 300);
 
 				// Request to change the theme color if possible
+				// No need to reset it when we leave the page,
+				// app-element takes care of that
 				this.requestThemeColorChange();
 			},
 			deactivated: function() {
