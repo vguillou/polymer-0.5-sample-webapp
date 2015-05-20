@@ -92,7 +92,9 @@
 				return this.user && this.user.color ? this.user.color : window.defaultColor;
 			},
 
-			herodivHidden: false,
+			herodivVisible: true,
+
+			titleStyle: null,
 
 			attributeChanged: function(attrName, oldVal, newVal) {
 				// Necessary for ActivableMixin
@@ -107,12 +109,14 @@
 				this.activableDetachedHandler();
 			},
 			willActivate: function() {
+				this.titleStyle = this.shadowRoot.querySelector('.title').style;
+
 				// Before even displying the page, make sure the scroller is set to top
 				this.$.headerpanel.scroller.scrollTop = 0;
 
 				// Show the hero-transition's target
 				this.$.herodiv.style.visibility = 'visible';
-				this.herodivHidden = false;
+				this.herodivVisible = true;
 			},
 			activated: function() {
 				// Get the details from the object's ID
@@ -121,8 +125,8 @@
 				// Hide the now useless hero-transition's target
 				this.async(function() {
 					this.$.herodiv.style.visibility = 'hidden';
-					this.herodivHidden = true;
-				}, null, 300);
+					this.herodivVisible = false;
+				}, null, 350);
 
 				// Request to change the theme color if possible
 				// No need to reset it when we leave the page,
@@ -175,18 +179,19 @@
 		  	},
 			transformHeader: function(e) {
 				// Hide the herodiv if it is not already
-				if (!this.herodivHidden || this.$.headerpanel.scroller.scrollTop > 0) {
+				if (this.herodivVisible && this.$.headerpanel.scroller.scrollTop > 0) {
 					this.$.herodiv.style.visibility = 'hidden';
-					this.herodivHidden = true;
+					this.herodivVisible = false;
 				}
 
 				// Calculating the scale of the title
-				var titleStyle = this.shadowRoot.querySelector('.title').style;
-				var d = e.detail;
-				var m = d.height - d.condensedHeight;
-				var scale = Math.max(0.75, (m - d.y) / (m / 0.25)  + 0.75);
-				titleStyle.transform = titleStyle.webkitTransform =
-					'scale(' + scale + ') translateZ(0)';
+				if (this.titleStyle) {
+					var d = e.detail;
+					var m = d.height - d.condensedHeight;
+					var scale = Math.max(0.75, (m - d.y) / (m / 0.25)  + 0.75);
+					this.titleStyle.transform = this.titleStyle.webkitTransform =
+						'scale(' + scale + ') translateZ(0)';
+				}
 			},
 			requestThemeColorChange: function() {
 				if (this.user && this.user.color) {
