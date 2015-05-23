@@ -19,12 +19,12 @@ core-item {
 }
 
 core-item.core-selected {
-	color: #7986cb;
+	color: #00BCD4;
 	font-weight: bold;
 }
 
 core-item > a > paper-ripple {
-	color: #7986cb;
+	color: #00BCD4;
 }
 
 
@@ -52,6 +52,10 @@ core-item > a > paper-ripple {
 
 :host /deep/ core-toolbar,
 :host /deep/ core-image {
-	background-color: #7986cb;
+	background-color: #00BCD4;
 	color: #fff;
+}
+
+:host /deep/ paper-ripple {
+	color: #00BCD4;
 }

@@ -2,7 +2,7 @@
   'use strict';
   
   // Global variables
-  window.defaultColor = '#7986cb';
+  window.defaultColor = '#00BCD4';
 
   // Setup the service worker
   if ('serviceWorker' in navigator) {
