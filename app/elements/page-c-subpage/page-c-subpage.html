@@ -7,14 +7,14 @@
 <link rel="import" href="../../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../../bower_components/core-animated-pages/transitions/hero-transition.html">
 <link rel="import" href="../../../bower_components/core-animated-pages/transitions/cross-fade.html">
-<link rel="import" href="../../services/user-service.html">
+<link rel="import" href="../../models/user-model.html">
 <link rel="import" href="../sample-content/sample-content.html">
 
 <polymer-element name="page-c-subpage" attributes="narrow params user transitionTo">
 	<template>
 		<link rel="stylesheet" href="page-c-subpage.css">
 		
-		<user-service id="service" on-details-loaded="{{detailsLoaded}}" on-details-error="{{detailsError}}"></user-service>
+		<user-model id="service" on-details-loaded="{{detailsLoaded}}" on-details-error="{{detailsError}}"></user-model>
 			<!-- Only for the hero transition; to be hidden when the transition ends -->
 			<div id="herodiv" class="tall-header" hero-id="userImg" hero?="{{(parentElement.selected===transitionTo || parentElement.lastSelected===transitionTo) && user!=null}}" cross-fade-delayed?="{{(parentElement.selected!=transitionTo && parentElement.lastSelected!=transitionTo) || !user}}"></div>
 			

@@ -1,7 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
 
-<polymer-element name="user-service" attributes="users">
+<polymer-element name="user-model" attributes="users">
   <template>
     <style>
     :host {
@@ -28,9 +28,9 @@
   (function() {
     // this variable is shared by all instances of the service
     var users_ = [];
-	var colors_ = ['#5C6BC0','#E91E63','#9C27B0','#673AB7','#3F51B5','#2196F3','#03A9F4','#00BCD4','#009688','#4CAF50','#8BC34A','#CDDC39','#FFEB3B','#FFC107','#FF9800','#FF5722','#795548','#795548','#607D8B'];
+	var colors_ = ['#5C6BC0','#E91E63','#9C27B0','#673AB7','#3F51B5','#2196F3','#03A9F4','#00BCD4','#009688','#6EFF77','#8BC34A','#CDDC39','#FFEB3B','#FFC107','#FF9800','#FF5722','#795548','#795548','#607D8B'];
 
-    Polymer('user-service', {
+    Polymer('user-model', {
 	  seed: null,
 	  
 	  /** 
@@ -53,7 +53,7 @@
 		this.$.ajaxDetails.go();
       },
 	  
-      usersLoaded: function(e) {
+      usersLoaded: function() {
 		if (this.$.ajaxUsers.response) {
 			//users_ = this.$.ajaxUsers.response.results.slice(0);
 			
@@ -75,7 +75,7 @@
 		this.fire('users-error', {srcEvent: e}, this, false);
       },
 	  
-      detailsLoaded: function(e) {
+      detailsLoaded: function() {
       	var userDetails = null;
 		if (this.$.ajaxDetails.response) {
 			this.$.ajaxDetails.response.results.some(

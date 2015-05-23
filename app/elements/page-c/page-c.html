@@ -8,13 +8,13 @@
 <link rel="import" href="../../../bower_components/paper-ripple/paper-ripple.html">
 <link rel="import" href="../../../bower_components/core-animated-pages/transitions/hero-transition.html">
 <link rel="import" href="../../../bower_components/core-animated-pages/transitions/cross-fade.html">
-<link rel="import" href="../../services/user-service.html">
+<link rel="import" href="../../models/user-model.html">
 
 <polymer-element name="page-c" attributes="narrow selectedUser transitionTo">
 	<template>
 		<link rel="stylesheet" href="page-c.css">
 		
-		<user-service id="service" on-users-loaded="{{usersLoaded}}" on-users-error="{{usersError}}"></user-service>
+		<user-model id="service" on-users-loaded="{{usersLoaded}}" on-users-error="{{usersError}}"></user-model>
 		
 		<core-header-panel id="headerpanel" mode="waterfall" fit>
 			<core-toolbar not-selectable cross-fade>
