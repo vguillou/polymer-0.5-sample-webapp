@@ -18,6 +18,10 @@
   text-decoration: inherit;
 }
 
+#list paper-ripple {
+  color: #00BCD4;
+}
+
 p.secondary {
   color: rgba(0, 0, 0, 0.4);
 }

@@ -11,7 +11,7 @@ core-menu {
 core-menu .separator {
 	padding: 16px;
 	font-size: 14px;
-	border-top: 1px solid #e0e0e0;
+	border-top: 1px solid #E0E0E0;
 }
 
 core-item {
@@ -56,6 +56,62 @@ core-item > a > paper-ripple {
 	color: #fff;
 }
 
-:host /deep/ paper-ripple {
-	color: #00BCD4;
+:host /deep/ paper-button.blend {
+	color: #7986CB;
+}
+
+:host /deep/ paper-button > core-icon {
+    margin-right: 4px;
+}
+
+:host /deep/ paper-toast .toast-action {
+  color: #EEFF41;
+}
+
+:host /deep/ paper-toast {
+  right: 12px;
+  left: auto;
+}
+
+
+/** Helpers: Layout, visibility **/
+
+:host /deep/ .center {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+:host /deep/ .center-middle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+:host /deep/ .opaque {
+  opacity: 1;
+}
+
+:host /deep/ .transparent {
+  opacity: 0;
+}
+
+:host /deep/ .visible {
+  visibility: visible;
+}
+
+:host /deep/ .hidden {
+  visibility: hidden;
+  overflow: hidden;
+}
+
+
+/** Helpers: Animation **/
+
+:host /deep/ [fade] {
+  -webkit-transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
