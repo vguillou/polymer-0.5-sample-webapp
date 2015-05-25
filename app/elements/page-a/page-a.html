@@ -46,8 +46,7 @@
 		function _toggleFullscreen() {
 			if (_isFullscreenEnabled()) {
 				if (!_isFullscreenToggled()) {
-					console.log('querySelector', this.querySelector('#headerimage'));
-					var d = document.documentElement;
+					var d = document.querySelector('#app');
 					if (d.requestFullscreen) {
 					    d.requestFullscreen();
 					} else if (d.webkitRequestFullscreen) {
