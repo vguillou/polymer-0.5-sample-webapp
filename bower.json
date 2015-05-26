@@ -36,6 +36,7 @@
     "more-routing": "Polymore/more-routing#^0.5",
     "cache-polyfill": "coonsta/cache-polyfill",
     "splash-element": "vguillou/splash-element#^0.5",
+    "fullscreen-api": "vguillou/fullscreen-api#^0.5",
     "activable-mixin": "vguillou/activable-mixin#^0.5"
   },
   "devDependencies": {
