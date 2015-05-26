@@ -7,6 +7,11 @@
 <link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../../bower_components/core-animated-pages/transitions/cross-fade.html">
 <link rel="import" href="../../../bower_components/fullscreen-api/fullscreen-api.html">
+<link rel="import" href="../../../bower_components/core-icons/core-icons.html">
+<link rel="import" href="../../../bower_components/core-icons/device-icons.html">
+<link rel="import" href="../../../bower_components/core-icons/hardware-icons.html">
+<link rel="import" href="../../../bower_components/core-icons/av-icons.html">
+<link rel="import" href="../../../bower_components/core-icons/maps-icons.html">
 <link rel="import" href="../sample-content/sample-content.html">
 
 <polymer-element name="page-a">
@@ -20,7 +25,57 @@
 			<div class="content" fit>
 				<core-image id="headerimage" src="../../images/logo.svg" preload fade sizing="contain"></core-image>
 
-				<sample-content size="10" cross-fade-delayed></sample-content>
+				<h3 class="row">Leveraging the power of Web Components and the Polymer framework, this sample Web App offers:</h3>
+
+				<div class="content" vertical center layout>
+
+					<div>
+						<div class="row" horizontal center layout>
+							<core-icon icon="hardware:smartphone" class="big"></core-icon>
+							<p>A mobile compatible web-app</p>
+						</div>
+						<div class="row" layout horizontal center>
+							<core-icon icon="android" class="big"></core-icon>
+							<p>Android, iOS, Windows Phone integration</p>
+						</div>
+						<div class="row" layout horizontal center>
+							<core-icon icon="av:repeat-one" class="big"></core-icon>
+							<p>Single-page navigation and routing</p>
+						</div>
+						<div class="row" layout horizontal center>
+							<core-icon icon="device:devices" class="big"></core-icon>
+							<p>Responsive design</p>
+						</div>
+						<div class="row" layout horizontal center>
+							<core-icon icon="device:signal-cellular-connected-no-internet-1-bar" class="big"></core-icon>
+							<p>Offline mode on Chrome using the Service worker</p>
+						</div>
+						<div class="row" layout horizontal center>
+							<core-icon icon="polymer" class="big"></core-icon>
+							<p>Polymer and MV* pattern implementation</p>
+						</div>
+						<div class="row" layout horizontal center>
+							<core-icon icon="maps:layers" class="big"></core-icon>
+							<p>Material Design</p>
+						</div>
+						<div class="row" layout horizontal center>
+							<core-icon icon="view-carousel" class="big"></core-icon>
+							<p>Smooth transitions between pages</p>
+						</div>
+						<div class="row" layout horizontal center>
+							<core-icon icon="input" class="big"></core-icon>
+							<p>Page initialisation pattern (with  <a href="https://github.com/vguillou/activable-mixin">&lt;activable-mixin&gt;</a>)</p>
+						</div>
+						<div class="row" layout horizontal center>
+							<core-icon icon="aspect-ratio" class="big"></core-icon>
+							<p>Full screen mode (with  <a href="https://github.com/vguillou/fullscreen-api">&lt;fullscreen-api&gt;</a>)</p>
+						</div>
+						<div class="row" layout horizontal center>
+							<core-icon icon="device:now-wallpaper" class="big"></core-icon>
+							<p>Splash screen (with <a href="https://github.com/vguillou/splash-element">&lt;splash-element&gt;</a>)</p>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<core-toolbar id="toolbar" not-selectable>
