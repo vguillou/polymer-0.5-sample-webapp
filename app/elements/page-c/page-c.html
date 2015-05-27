@@ -53,6 +53,7 @@
   		</paper-toast>
 	</template>
 	<script>
+	(function () {
 		Polymer('page-c', Polymer.mixin({
 			/**
 			 * The 'mobile or not' flag.
@@ -130,5 +131,6 @@
 				this.fire('toggle-panel', {srcEvent: e}, this, false);
 			}
 		}, Polymer.ActivableMixin));
+	})();
 	</script>
 </polymer-element>

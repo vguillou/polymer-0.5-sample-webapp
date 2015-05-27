@@ -82,6 +82,7 @@
 		</div>
 	</template>
 	<script>
+	(function () {
 		Polymer('page-c-subpage', Polymer.mixin({
 			narrow: false,
 
@@ -259,5 +260,6 @@
 				this.fire('change-theme-color', {color: this._headerColor}, this, false);
 			}
 		}, Polymer.ActivableMixin));
+	})();
 	</script>
 </polymer-element>

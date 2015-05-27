@@ -24,6 +24,7 @@
 		</core-header-panel>
 	</template>
 	<script>
+	(function () {
 		Polymer('page-b', Polymer.mixin({
 			publish: {
 				narrow: false,
@@ -51,5 +52,6 @@
 				this.fire('toggle-panel', {srcEvent: e}, this, false);
 			}
 		}, Polymer.ActivableMixin));
+	})();
 	</script>
 </polymer-element>

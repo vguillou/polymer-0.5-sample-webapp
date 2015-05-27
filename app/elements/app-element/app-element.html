@@ -85,8 +85,9 @@
 	</template>
 	
 	<script>
-		/*global MoreRouting */
-
+	/*global MoreRouting */
+	
+	(function () {
 		Polymer('app-element', {
 			selectedUser: null,
 			
@@ -136,5 +137,6 @@
 				}
 			}
 		});
+	})();
 	</script>
 </polymer-element>

@@ -25,6 +25,7 @@
 		</core-header-panel>
 	</template>
 	<script>
+	(function () {
 		Polymer('page-b-subpage', Polymer.mixin({
 			publish: {
 				narrow: false,
@@ -54,5 +55,6 @@
 				this.fire('navigate', {route: 'page-b', params: null}, this, false);
 			}
 		}, Polymer.ActivableMixin));
+	})();
 	</script>
 </polymer-element>
