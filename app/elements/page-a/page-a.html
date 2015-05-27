@@ -20,7 +20,7 @@
 		
 		<fullscreen-api id="fsapi"></fullscreen-api>
 
-		<core-header-panel id="headerpanel" mode="seamed" on-scroll="{{_scroll}}" fit cross-fade>
+		<core-header-panel id="headerpanel" mode="seamed" on-scroll="{{_scroll}}" cross-fade>
 			
 			<div class="content" fit>
 				<core-image id="headerimage" src="../../images/logo.svg" preload fade sizing="contain"></core-image>
@@ -80,7 +80,7 @@
 
 			<core-toolbar id="toolbar" not-selectable>
 				<paper-icon-button icon="menu" on-tap="{{_togglePanel}}" hidden?="{{!narrow}}"></paper-icon-button>
-				<span id="title" class="toolbarTitle" flex>Page A</span>
+				<span id="title" flex>Page A</span>
 				<paper-icon-button id="fullscreenBtn" icon="{{$.fsapi.fullscreen ? 'fullscreen-exit' : 'fullscreen'}}" title="{{($.fsapi.fullscreen ? 'Exit' : 'Go') + ' full screen'}}" on-click="{{_toggleFullscreen}}" hidden?="{{!$.fsapi.fullscreenAvailable}}"></paper-icon-button>
 			</core-toolbar>
 		</core-header-panel>

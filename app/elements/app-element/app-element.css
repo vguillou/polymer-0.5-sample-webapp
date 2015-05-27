@@ -37,17 +37,19 @@ core-item > a > paper-ripple {
 	user-select: none;
 }
 
-:host /deep/ core-header-panel {
+:host /deep/ core-header-panel,
+:host /deep/ core-scroll-header-panel {
 	position: absolute;
-	-webkit-overflow-scrolling: touch; 
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	-webkit-overflow-scrolling: touch;
 }
 
 :host /deep/ core-toolbar {
-	display: block;
-	height: 60px;
 	font-size: 20px;
 	font-weight: 600;
-	line-height: 60px;
 }
 
 :host /deep/ core-toolbar,

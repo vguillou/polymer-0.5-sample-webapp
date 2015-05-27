@@ -4,16 +4,12 @@ core-toolbar {
   right: 0;
   left: 0;
   height: 60px;
-  line-height: 60px;
-  font-size: 18px;
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: transparent;
   z-index: 1;
 }
 
 .toolbarTitle {
   opacity: 0;
-  font-size: 110%;
 }
 
 #headerimage {
