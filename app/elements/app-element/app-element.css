@@ -1,9 +1,15 @@
+#layout::shadow [drawer] {
+	box-shadow: 1px 0 4px 0 rgba(0, 0, 0, 0.37);
+	background-color: #FFF;
+}
+
 img.menuHeader {
-	width: 224px;
-	margin: 16px 38px 16px 38px;
+	margin: -32px 38px -32px 38px;
+	max-height: 255px;
 }
 
 core-menu {
+	border-top: 1px solid #E0E0E0;
 	margin: 0;
 	padding: 0;
 }
@@ -27,6 +33,10 @@ core-item > a > paper-ripple {
 	color: #00BCD4;
 }
 
+core-animated-pages {
+	z-index: 0; /* needed for the drawer to _always_ cover the pages */
+}
+
 
 /** Default theme **/
 
@@ -35,6 +45,13 @@ core-item > a > paper-ripple {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+:host /deep/ [selectable] {
+	-webkit-user-select: all;
+	-moz-user-select: all;
+	-ms-user-select: all;
+	user-select: all;
 }
 
 :host /deep/ core-header-panel,
@@ -55,7 +72,7 @@ core-item > a > paper-ripple {
 :host /deep/ core-toolbar,
 :host /deep/ core-image {
 	background-color: #00BCD4;
-	color: #fff;
+	color: #FFF;
 }
 
 :host /deep/ paper-button.blend {
