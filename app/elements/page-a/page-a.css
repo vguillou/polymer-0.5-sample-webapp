@@ -6,7 +6,7 @@ paper-fab {
   z-index: 1;
 }
 
-core-header-panel[mode=cover] paper-fab {
+:host(:not([narrow])) paper-fab {
   top: 162px;
 }
 
