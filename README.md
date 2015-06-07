@@ -2,6 +2,10 @@
 
 _(Work in progress !)_
 
+### Compatibility
+
+Polymer 0.5.X
+
 ## What
 
 Simple Web App built with Web Components and Polymer (not quite ready yet).
