@@ -8,16 +8,14 @@
 
 <polymer-element name="page-b">
 	<template>
-		<link rel="stylesheet" href="page-b.css">
-		
 		<core-header-panel id="headerpanel" mode="waterfall" cross-fade>
 			<core-toolbar _style="background-color: {{themecolor}};" not-selectable>
 				<paper-icon-button icon="menu" on-tap="{{_togglePanel}}" hidden?="{{!narrow}}"></paper-icon-button>
 				<span flex>Page B</span>
 			</core-toolbar>
 			<div class="content" flex>
-				<div class="page-content">
-					<a class="info" href="{{urlFor('page-b-subpage', {myparam: 'foo'})}}">Test subpage with param 'foo'</a>
+				<div class="paper-card">
+					Try this link to a <a class="info" href="{{urlFor('page-b-subpage', {myparam: 'foo'})}}">nested page with the 'foo' parameter</a> !
 				</div>
 				<sample-content size="10"></sample-content>
 			</div>

@@ -2,10 +2,5 @@ node_modules
 temp
 .sass-cache
 .tmp
-TODO.txt
 bower_components
-
 dist
-#!dist/bower_components
-#dist/bower_components/*
-#!dist/bower_components/webcomponentsjs

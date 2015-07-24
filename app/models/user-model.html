@@ -131,7 +131,7 @@
 	  
       _usersError: function(e) {
         this.async(function() {
-          console.log('user-model : usersError', e);
+          console.error('user-model : usersError', e);
           this.usersLoading = false;
           this.usersError = e;
         }, null, 2000);
@@ -161,7 +161,7 @@
 	  
 	    _userDetailsError: function(e) {
         this.async(function() {
-          console.log('user-model : userDetailsError', e);
+          console.error('user-model : userDetailsError', e);
           this.userDetailsLoading = false;
   		    this.userDetailsError = e;
         }, null, 2000);

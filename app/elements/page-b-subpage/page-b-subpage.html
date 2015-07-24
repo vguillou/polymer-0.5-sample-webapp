@@ -8,17 +8,15 @@
 
 <polymer-element name="page-b-subpage">
 	<template>
-		<link rel="stylesheet" href="page-b-subpage.css">
-		
 		<core-header-panel id="headerpanel" mode="waterfall" cross-fade>
 			<core-toolbar _style="background-color: {{themecolor}};" not-selectable>
 				<paper-icon-button icon="arrow-back" on-tap="{{_onGoBack}}"></paper-icon-button>
 				<span flex>Page B Subpage</span>
 			</core-toolbar>
 			<div class="content" flex>
-				<div class="page-content">
-					<h2>Page B subpage with param : {{params.myparam}}</h2>
-					<h3>The scroller on this page is set to top everytime you access the page through the 'willActivate' callback added by the activable-mixin</h3>
+				<div class="paper-card">
+					<h3>You are now on the nested page with parameter : {{params.myparam}}</h2>
+					<p>Note that the scroller on this page is set to top everytime you access the page through the 'willActivate' callback added by the activable-mixin</p>
 				</div>
 				<sample-content size="10"></sample-content>
 			</div>

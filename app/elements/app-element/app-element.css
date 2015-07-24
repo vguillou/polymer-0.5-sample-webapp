@@ -92,6 +92,14 @@ core-animated-pages {
   left: auto;
 }
 
+:host /deep/ .paper-card {
+  background-color: #FFF;
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  border-radius: 2px;
+}
+
 
 /** Helpers: Layout, visibility **/
 
