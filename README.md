@@ -8,16 +8,19 @@ Simple Web App built with Web Components and Polymer (not quite ready yet).
 
 This is intended to be used as a base to start building your own Web App using Polymer, Web COmponents and the Service Worker.
 You'll find here :
-* a responsive Web App, of course
-* an implementation of the Service Worker, allowing to use the Web App offline
-* a splash screen (using [splash-element](https://github.com/vguillou/splash-element))
-* mobile compatible Web App metadata (including Android, iOS and Windows Phone)
+* a responsive Web App, of course, build with Polymer 0.5
+* Android, iOS, Windows Phone integration
 * routing and single-page navigation (using [more-routing](https://github.com/PolymerLabs/more-routing))
-* page transition effects
+* an offline mode on Chrome using the Service worker
+* a Polymer 0.5 and MV* pattern implementation
+* some sweet Material Design
+* a splash screen (using [splash-element](https://github.com/vguillou/splash-element))
+* neat and smooth page transition effects
 * a page initialisation pattern (using [activable-mixin](https://github.com/vguillou/activable-mixin))
-* and more
+* native HTML5 full screen mode (using [fullscreen-api](https://github.com/vguillou/fullscreen-api))
 
-## How
+
+## How to
 
 * Fork on Github/clone this repo
 ```sh
@@ -57,11 +60,7 @@ gulp serve
 ```
 Visit ./app/index.html or ./dist/index.html for the optimized version.
 
-## Demo
-
-Keep in mind this is only a draft ! (transitions, issues with CORS,...)
-
-[Here.](https://vguillou.github.io/sample-app/dist/)
+## [Demo !](https://vguillou.github.io/psw-0.5/)
 
 ## License
 
