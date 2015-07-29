@@ -2,9 +2,9 @@
 
 ## What
 
-Simple Web App built with Web Components and Polymer (not quite ready yet).
+Simple Web App built with Web Components and Polymer.
 
-This is intended to be used as a base to start building your own Web App using Polymer, Web COmponents and the Service Worker.
+This is intended to be used as a base to start building your own Web App using Polymer, Web Components and the Service Worker.
 You'll find here :
 * a responsive Web App, of course, build with Polymer 0.5
 * Android, iOS, Windows Phone integration
