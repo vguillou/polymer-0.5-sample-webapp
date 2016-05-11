@@ -1,3 +1,7 @@
+#layout::shadow [drawer] {
+    height: 100%;
+}
+
 #layout:not([narrow])::shadow [drawer] {
 	box-shadow: 1px 0 4px 0 rgba(0, 0, 0, 0.37);
 	background-color: #FFF;
